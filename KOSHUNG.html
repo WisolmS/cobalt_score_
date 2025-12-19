@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코발트 내전 정보</title>
+
+    <style>
+        body{background-image: url("thisisbonobobno.jpg"); background-size: cover;
+ background-position: center;}
+    </style>
+</head>
+<body>
+    <form name="information">
+        <fieldset style="background-image: url(Anaf_scared.png);background-position: center;
+        background-size: cover;">
+        
+            <legend>선수 정보 입력</legend> 
+            닉네임 입력:<input type="text" name="nickname" id="nickname"><br>
+            최고점수 입력:<input type="number" name="Hscore" id="Hscore"><br>
+            가장 최근 시즌 중 점수 입력(단, 50판 이상일것): <br>
+            <input type="number" name="Rscore" id="Rscore"><br>
+            코발트 승리 판 수:<input type="number" name="VPlayed" id="VPlayed"><br>
+            코발트 평딜 입력 :<input type="number" name="Avadeal" id="Avadeal"><br>
+    
+            <input type="submit" value="제출" id="GetInput">
+            
+        </fieldset>
+    </form>
+    
+    <h4 id="result"></h4>
+    <script>
+        const form = document.information;
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault(); // ⭐ 새로고침 방지
+
+            // 값 가져오기
+        const nickname = form.nickname.value;
+        const Hscore = Number(form.Hscore.value);
+        const Rscore = Number(form.Rscore.value);
+        const Played = Number(form.VPlayed.value);
+        const Avadeal = Number(form.Avadeal.value);
+
+        // 환산 점수 계산
+        const total = (Hscore + Rscore) / 2 + Played * 0.0005 * Avadeal;
+
+        // 결과 출력
+        document.getElementById("result").innerHTML = `
+            선수 이름: ${nickname} <br>
+            최고 점수: ${Hscore} <br>
+            최근 시즌 점수: ${Rscore} <br>
+            코발트 판 수: ${VPlayed} <br>
+            평균 딜: ${Avadeal} <br>
+            <hr>
+            환산 점수: <b>${total.toFixed(2)}</b>
+        `;
+    });
+</script>
+
+</body>
+</html>
