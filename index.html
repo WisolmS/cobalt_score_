@@ -46,17 +46,22 @@
         const total = (Hscore + Rscore) / 2 + Played * 0.0005 * Avadeal;
 
         // 결과 출력
-        document.getElementById("result").innerHTML = `
-            선수 이름: ${nickname} <br>
-            최고 점수: ${Hscore} <br>
-            최근 시즌 점수: ${Rscore} <br>
-            코발트 판 수: ${VPlayed} <br>
-            평균 딜: ${Avadeal} <br>
-            <hr>
-            환산 점수: <b>${total.toFixed(2)}</b>
-        `;
-    });
+      document.getElementById("result").innerHTML = `
+    <h3>입력 정보</h3>
+    닉네임:
+    <a href="https://dak.gg/er/players/${encodeURIComponent(nickname)}" target="_blank">
+        ${nickname}
+    </a><br>
+    최고 점수: ${Hscore}<br>
+    최근 시즌 점수: ${Rscore}<br>
+    판 수: ${Played}<br>
+    평균 딜: ${Avadeal}<br>
+    <hr>
+    <strong>환산 점수: ${total.toFixed(2)}</strong>
+    `;
+ });
 </script>
 
 </body>
 </html>
+
